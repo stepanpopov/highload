@@ -211,9 +211,7 @@ S3 бакет будем формировать по user_id. Названием
 Частичная загрузка файлов будет также происходить за счет s3.
 
 ### Схема таблиц для проверки прав:
-<img src="https://github.com/stepanpopov/highload-google-drive/assets/77172612/b0f4a56a-2cbb-4f79-8046-fcb794f35c8d" width="300">
-
-Таблица ACL_ALL будет проверяться первой, в случае неудачи будет проверяться права для конкретного юзера в таблице ACL.
+<img src="https://github.com/stepanpopov/highload-google-drive/assets/77172612/fbd74d49-7101-40bb-93fa-36fdc0f9d827" width="300">
 
 Ключом бакета шардирования будет хэш функция от file_uuid.
 
