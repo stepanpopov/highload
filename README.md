@@ -280,7 +280,7 @@ S3 бакет будем формировать по user_id. Частичная
 Для доступа к шардам и маппинга бакета на шард будем использовать несколько stateless роутеров. 
 
 Индексы для таблицы Users:
-- user_uiid - hash unique index
+- user_uuid - hash unique index
 
 Индексы для таблицы ACL:
 - file_uuid и user_uiid - составной hash index
