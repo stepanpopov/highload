@@ -281,11 +281,12 @@ S3 бакет будем формировать по user_id. Частичная
 
 Индексы для таблицы Users:
 - user_uiid - hash unique index
+
 Индексы для таблицы ACL:
 - file_uuid и user_uiid - составной hash index
 
-- Шардирование Users по по хэш функции от ключа user_uuid. (consistent hashing).
-- Шардирование ACL по по хэш функции от ключа file_uuid. (consistent hashing).
+Шардирование Users по по хэш функции от ключа user_uuid. (consistent hashing).\
+Шардирование ACL по по хэш функции от ключа file_uuid. (consistent hashing).
 
 #### Дампы
 Каждого шарда любой базы данных будет иметь дополнительную реплику, с которой будет сниматься dump и отправляться в S3 Cold storage (например S3 Standard-IA). 
