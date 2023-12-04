@@ -434,8 +434,8 @@ DevRel и ScrumMaster для обеспечения продуктивной р�
 |List Dirs| 126 RPS|90 Mb|1|18 Mb/s|
 |Authorization| 4068 RPS|10 Mb|5| 2 Mb / s|
 |Finish Upload Coordinator| 684 RPS|5 Mb|1|< 1 Mb / s|
-|Files View Updater| 814 RPS|1 GB|1|108 Mb/s|
-|CDC| 814 RPS|5 Gb |250 Mb |50 Mb/s|
+|Files View Updater| 814 RPS|500 Mb|1|108 Mb/s|
+|CDC| 814 RPS|250 Mb |1 |50 Mb/s|
 |Centryfugo|720 RPS, 275k web socket коннектов| 100 Gb | 275 | < 1 Mb /s |
 |Envoy|4068 RPS, 275k web socket коннектов |500 GB|300|21 GiB / s|
 |Nginx|4068 RPS, 275k web socket коннектов, Ssl-termination|500 GB|3000|21 GiB / s|
