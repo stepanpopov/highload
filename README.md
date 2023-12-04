@@ -417,7 +417,7 @@ Raid будем делать на программном уровне для о�
 DevRel и ScrumMaster для обеспечения продуктивной разработки.
 
 ## Схема проекта
-![image](https://github.com/stepanpopov/highload-google-drive/assets/77172612/dcb087ef-1d84-408f-b570-7cc6b56d6d33)
+![image](https://github.com/stepanpopov/highload-google-drive/assets/77172612/ec832983-2d65-49c2-b856-87c1cbb904c7)
 
 ## Выбор оборудования и хостинг
 
@@ -425,19 +425,20 @@ DevRel и ScrumMaster для обеспечения продуктивной р�
 
 |Сервис| Целевая нагрузка | Ram | CPU | Net | 
 |----|----|----|----|----|
-|Upload|2490 RPS|400 GB|20|20 GiB / s|
-|Init upload| 684 RPS |2 GB|5| < 1 Mb / s |
-|Delete| 126 RPS |2 GB|5|< 1 Mb / s|
-|S3 Deleter| 126 RPS |2 GB|5|< 1 Mb / s|
-|Download|522 RPS|2 GB|5|< 1 Mb / s|
-|Search|120 RPS|2 GB|5|< 1 Mb / s|
-|List Dirs| 126 RPS|5 GB|5|18 Mb/s|
-|Authorization| 4068 RPS|20 GB|20|< 1 Mb / s|
-|Finish Upload Coordinator| 684 RPS|2 GB|10|< 1 Mb / s|
-|Files View Updater| 814 RPS|5 GB|20|108 Mb/s|
-|CDC| 814 RPS|5 Gb |10|50 Mb/s|
+|Upload|2490 RPS|400 GB|3|20 GiB / s|
+|Init upload| 684 RPS |5 Mb|1| < 1 Mb / s |
+|Delete| 126 RPS |5 Mb|1|< 1 Mb / s|
+|S3 Deleter| 126 RPS |5 Mb|1|< 1 Mb / s|
+|Download|522 RPS|5 Mb|1|< 1 Mb / s|
+|Search|120 RPS|5 Mb|1|< 1 Mb / s|
+|List Dirs| 126 RPS|90 Mb|1|18 Mb/s|
+|Authorization| 4068 RPS|10 Mb|5| 2 Mb / s|
+|Finish Upload Coordinator| 684 RPS|5 Mb|1|< 1 Mb / s|
+|Files View Updater| 814 RPS|1 GB|1|108 Mb/s|
+|CDC| 814 RPS|5 Gb |250 Mb |50 Mb/s|
 |Centryfugo|720 RPS, 275k web socket коннектов| 100 Gb | 275 | < 1 Mb /s |
 |Envoy|4068 RPS, 275k web socket коннектов |500 GB|300|21 GiB / s|
+|Nginx|4068 RPS, 275k web socket коннектов, Ssl-termination|500 GB|3000|21 GiB / s|
 
 
 <!-- K8:
@@ -446,7 +447,8 @@ DevRel и ScrumMaster для обеспечения продуктивной р�
 
 | Название |Хостинг |Конфигурация |	Cores |	Cnt |	Покупка |	Аренда |
 |----|----|----|----|----|----|----|
-|kubenode| 	own |	2x6338/16x32GB/2xNVMe4T/2x25Gb/s |	64 |	60 |	$14500 |	$241
+|kubenode| 	own |	2x6338/16x32GB/2xNVMe4T/2x25Gb/s |	64 |	60 |	$14500 |	$241|
+|nginx bare metal| own | 2x6338/16x32GB/NVMe512Gb/2x25Gb/s | 64 | 46 | $13000 | $202 |
 
 
 
