@@ -423,18 +423,18 @@ DevRel и ScrumMaster для обеспечения продуктивной р�
 
 |Сервис| Целевая нагрузка | Ram | CPU | Net | 
 |----|----|----|----|----|
-|Upload|2490 RPS|400 GB|10|20 GiB / s|
-|Init upload| 684 RPS |2 GB|10|0.001 Gb/s|
-|Delete| 126 RPS |2 GB|1|0.001 Gb/s|
-|S3 Deleter| 126 RPS |2 GB|10|0.001 Gb/s|
-|Download|522 RPS|2 GB|10|0.001 Gb/s|
-|Search|120 RPS|2 GB|10|0.001 Gb/s|
-|List Dirs| 126 RPS|20 GB|10|0.01 Gb/s|
-|Authorization| 4068|20 GB|20|0.001 Gb/s|
-|Finish Upload Coordinator| 684 RPS|2 GB|10|0.001 Gb/s|
-|Files View Updater| 814 RPS|120 GB|10|0.01 Gb/s|
-|CDC| 814 RPS||10|0.01 Gb/s|
-|Envoy|4068 |200 GB|20|20 GiB / s|
+|Upload|2490 RPS|400 GB|20|20 GiB / s|
+|Init upload| 684 RPS |2 GB|5| < 1 Mb / s |
+|Delete| 126 RPS |2 GB|5|< 1 Mb / s|
+|S3 Deleter| 126 RPS |2 GB|5|< 1 Mb / s|
+|Download|522 RPS|2 GB|5|< 1 Mb / s|
+|Search|120 RPS|2 GB|5|< 1 Mb / s|
+|List Dirs| 126 RPS|5 GB|5|18 Mb/s|
+|Authorization| 4068 RPS|20 GB|20|< 1 Mb / s|
+|Finish Upload Coordinator| 684 RPS|2 GB|10|< 1 Mb / s|
+|Files View Updater| 814 RPS|5 GB|20|108 Mb/s|
+|CDC| 814 RPS|5 Gb |10|50 Mb/s|
+|Envoy|4068 |500 GB|30|21 GiB / s|
 
 
 <!-- K8:
@@ -443,7 +443,8 @@ DevRel и ScrumMaster для обеспечения продуктивной р�
 
 | Название |Хостинг |Конфигурация |	Cores |	Cnt |	Покупка |	Аренда |
 |----|----|----|----|----|----|----|
-|kubenode|	own |	2x6338/16x32GB/2xNVMe4T/2x25Gb/s |	64 |	60 |	$14500 |	$241
+|kubenode| 	own |	2x6338/16x32GB/2xNVMe4T/2x25Gb/s |	64 |	60 |	$14500 |	$241
+
 
 
 
