@@ -458,8 +458,8 @@ Envoy = RPS фронтовых микросервисов + авторизаци
 |----|----|----|----|----|----| -->
 
 | Название |Хостинг |Конфигурация |	Cores |	Cnt |
-|----|----|----|----|----|----|----|
-|kubenode envoy| 	own |	2x6338/8x16GB/2xNVMe4T/2x25Gb/s |	64 |	3 |
+|----|----|----|----|----|
+|kubenode envoy| own |	2x6338/8x16GB/2xNVMe4T/2x25Gb/s |	64 |	3 |
 |kubenode upload| own | 2x2374/16x16Gb/2x2xNVMe4T/2x25Gb/s| 8 | 2 |
 |kubenode other| own| 2x2374/8x16Gb/2x2xNVMe4T/1Gb/s | 8 | 6 | 
 |nginx bare metal| own | 1x6338/2x32GB/NVMe512Gb/2x25Gb/s | 32 | 2 |
