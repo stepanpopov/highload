@@ -344,7 +344,6 @@ S3 бакет будем формировать по user_id. Частичная
 
 **Tarantool**:
 - go connector https://github.com/tarantool/go-tarantool
-- rust connector https://github.com/picodata/tarantool-module
 
 **S3**:
 - aws s3 connector https://github.com/aws/aws-sdk-go
