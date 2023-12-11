@@ -134,14 +134,14 @@ DAU = 5.5 M
 #### Дневной траффик:
 RPS * объем файлов, который требует дейcтвие * 86 400
 
-- **Загрузка на диск**: (921 * 10 MiB + 63 * 5.12 MiB + 252 * 1.12 MiB + 9 * 2.5 MiB) * 86 400 = 830 528 GiB / day 
-- **Дневной траффик**: 830 528 GiB / day 
+- **Загрузка на диск**: (921 * 10 MiB + 63 * 5.12 MiB + 252 * 1.12 MiB + 9 * 2.5 MiB) * 86 400 * 8 = 6 644 224 Gbit / day = 6488 Pbit / day 
+- **Дневной траффик**: 6 644 224 Gbit / day
 
 #### Пиковый траффик в секунду:
 Дневной траффик / 86 400 * 2
 
-- **Загрузка на диск**: 830 528 GiB / 86 400 * 2 = 19.2 GiB / s
-- **Пиковый траффик в секунду**: 19.2 GiB / s
+- **Загрузка на диск**: 6 644 224 Gbit / 86 400 * 2 = 153.6 Gbit / s
+- **Пиковый траффик в секунду**: 153.6 Gbit / s
 
 ### Продуктовые метрики:
 | Метрика    | Значение |
@@ -159,8 +159,8 @@ RPS * объем файлов, который требует дейcтвие * 8
 | Метрика    | Значение |
 | -------- | ------- |
 | Общий размер хранилища  | 37 443 PiB |
-| Траффик в день | 830 528 GiB / day |
-| Пиковый траффик в секунду | 19.2 GiB / s |
+| Траффик в день | 6488 Pbit / day |
+| Пиковый траффик в секунду | 153.6 Gbit / s |
 | RPS | 1694 |
 | Пиковый RPS | 3388 |
 
@@ -433,21 +433,21 @@ Envoy = RPS фронтовых микросервисов + авторизаци
 
 |Сервис| Целевая нагрузка | Ram | CPU | Net | 
 |----|----|----|----|----|
-|Upload|2490 RPS|100 GB|6|20 GiB / s|
-|Init upload| 684 RPS |10 Mb|2| < 1 Mb / s |
-|Delete| 126 RPS |5 Mb|1|< 1 Mb / s|
-|S3 Deleter| 126 RPS |5 Mb|1|< 1 Mb / s|
-|Download|522 RPS|10 Mb|1|< 1 Mb / s|
-|Search|120 RPS|5 Mb|1|< 1 Mb / s|
-|List Dirs| 126 RPS|90 Mb|1|18 Mb/s|
-|Authorization| 4068 RPS|10 Mb|5| 2 Mb / s|
-|Finish Upload Coordinator| 684 RPS|5 Mb|3|< 1 Mb / s|
-|Files View Updater| 814 RPS|500 Mb|10|108 Mb/s|
-|CDC| 814 RPS|250 Mb |2|50 Mb/s|
-|Centryfugo|720 RPS, 5.5M web socket коннектов| 50 Gb | 2 | < 1 Mb /s |
-|Envoy|8136 RPS, 5.5M web socket коннектов |44 GB|81|21 GiB / s|
-|Nginx|4068 RPS, 5.5M web socket коннектов|43 GB|5|21 GiB / s|
-|Nginx|4068 RPS, 5.5M web socket коннектов, Ssl-termination|44 GB|13|21 GiB / s|
+|Upload|2490 RPS|100 GB|6|153.6 Gbit / s|
+|Init upload| 684 RPS |10 Mb|2| 8 Mbit / s |
+|Delete| 126 RPS |5 Mb|1| 8 Mbit / s|
+|S3 Deleter| 126 RPS |5 Mb|1| 8 Mbit / s|
+|Download|522 RPS|10 Mb|1| 8 Mbit / s|
+|Search|120 RPS|5 Mb|1| 8 Mbit / s|
+|List Dirs| 126 RPS|90 Mb|1|128 Mbit/s|
+|Authorization| 4068 RPS|10 Mb|5| 16 Mbit / s|
+|Finish Upload Coordinator| 684 RPS|5 Mb|3| 8 Mbit / s|
+|Files View Updater| 814 RPS|500 Mb|10|864 Mbit/s|
+|CDC| 814 RPS|250 Mb |2|400 Mbit/s|
+|Centryfugo|720 RPS, 5.5M web socket коннектов| 50 Gb | 2 | 8 Mbit /s |
+|Envoy|8136 RPS, 5.5M web socket коннектов |44 GB|81|153.6 Gbit / s|
+|Nginx|4068 RPS, 5.5M web socket коннектов|43 GB|5|153.6 Gbit / s|
+|Nginx|4068 RPS, 5.5M web socket коннектов, Ssl-termination|44 GB|13|153.6 Gbit / s|
 
 
 <!-- K8:
@@ -456,10 +456,10 @@ Envoy = RPS фронтовых микросервисов + авторизаци
 
 | Название |Хостинг |Конфигурация |	Cores |	Cnt |
 |----|----|----|----|----|
-|kubenode envoy| own |	2x6338/8x16GB/2xNVMe4T/2x25Gb/s |	64 |	3 |
-|kubenode upload| own | 2x2374/16x16Gb/2x2xNVMe4T/2x25Gb/s| 8 | 2 |
-|kubenode other| own| 2x2374/8x16Gb/2x2xNVMe4T/1Gb/s | 8 | 6 | 
-|nginx bare metal| own | 1x6338/2x32GB/NVMe512Gb/2x25Gb/s | 32 | 2 |
+|kubenode envoy| own |	2x6338/8x16GB/2xNVMe4T/2x25Gbit/s |	64 |	3 |
+|kubenode upload| own | 2x2374/16x16Gb/2x2xNVMe4T/2x25Gbit/s| 8 | 3 |
+|kubenode other| own| 2x2374/8x16Gb/2x2xNVMe4T/1Gbit/s | 8 | 6 | 
+|nginx bare metal| own | 1x6338/2x32GB/NVMe512Gb/2x25Gbit/s | 32 | 3 |
 
 
 
